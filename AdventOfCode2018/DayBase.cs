@@ -54,11 +54,16 @@ namespace AdventOfCode2018
 
             if (!Ignore)
             {
-                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput)}");
-                Console.WriteLine($"{className}, part 1     : {Part1(Input)}");
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput)} [{stopwatch.ElapsedMilliseconds}ms]");
 
-                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput)}");
-                Console.WriteLine($"{className}, part 2     : {Part2(Input)}");
+                stopwatch.Restart();                
+                Console.WriteLine($"{className}, part 1     : {Part1(Input)} [{stopwatch.ElapsedMilliseconds}ms]");
+                stopwatch.Restart();
+                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput)} [{stopwatch.ElapsedMilliseconds}ms]");
+                stopwatch.Restart();
+                Console.WriteLine($"{className}, part 2     : {Part2(Input)} [{stopwatch.ElapsedMilliseconds}ms]");
                 Console.WriteLine();
             }
             else

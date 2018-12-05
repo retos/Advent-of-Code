@@ -13,14 +13,8 @@ namespace AdventOfCode2018.Day01
 
         public override string Part1(List<string> input)
         {
-            int frequency = 0;
-
-            foreach (string line in input)
-            {
-                DataTable dt = new DataTable();
-                frequency = (int)dt.Compute($"{frequency} {line}", "");
-            }
-
+            DataTable dt = new DataTable();
+            int frequency = (int)dt.Compute($"0 {string.Join(" ", input)}", "");
             return $"Last frequency: {frequency}";
         }
 
