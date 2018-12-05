@@ -2,8 +2,13 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/AdventOfCode/v15/Server/sqlite3/storage.ide-wal
-/.vs/AdventOfCode/v15/Server/sqlite3/storage.ide-shm
-/.vs/AdventOfCode/v15/Server/sqlite3/storage.ide
-/.vs/AdventOfCode/v15/Server/sqlite3/db.lock
-/.vs/AdventOfCode/v15/.suo
+/.vs
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+# build folder is nowadays used for build scripts and should not be ignored
+#build/
