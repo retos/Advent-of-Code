@@ -7,7 +7,7 @@ namespace AdventOfCode2018
         string Title { get; }
         bool Ignore { get; }
         void Calculate();
-        string Part1(List<string> input);
-        string Part2(List<string> input);
+        string Part1(List<string> input, bool isTestRun);
+        string Part2(List<string> input, bool isTestRun);
     }
 }

@@ -12,7 +12,7 @@ namespace AdventOfCode2018.Day06
 
         public override bool Ignore => false;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             List<Coordinates> coordinates = new List<Coordinates>();
             foreach (string s in input)
@@ -49,7 +49,7 @@ namespace AdventOfCode2018.Day06
             return winners.First().ClosestTo.Count.ToString();
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             List<Coordinates> coordinates = new List<Coordinates>();
             foreach (string s in input)
@@ -80,8 +80,13 @@ namespace AdventOfCode2018.Day06
 
             List<Coordinates> saveCoordinates = coordinates.Where(c => coordinates.Any(co => co.ClosestTo.Any( cl => cl.X.Equals(c.X) && cl.Y.Equals(c.Y)))).ToList();
 
-            List<KeyValuePair<string, int>> distances32 = new List<KeyValuePair<string, int>>();
-            List<KeyValuePair<string, int>> distances1000 = new List<KeyValuePair<string, int>>();
+            List<KeyValuePair<string, int>> distances = new List<KeyValuePair<string, int>>();
+
+            int maxDistance = 10000;
+            if (isTestRun)
+            {
+                maxDistance = 32;
+            }
 
             for (int x = 0; x <= maxX; x++)
             {
@@ -89,18 +94,14 @@ namespace AdventOfCode2018.Day06
                 {
 
                     int totalDistances = saveCoordinates.Sum(c => c.Distance(x, y));
-                    if (totalDistances < 32)
+                    if (totalDistances < maxDistance)
                     {
-                        distances32.Add(new KeyValuePair<string, int>($"{x},{y}", totalDistances));
-                    }
-                    if (totalDistances < 10000)
-                    {
-                        distances1000.Add(new KeyValuePair<string, int>($"{x},{y}", totalDistances));
+                        distances.Add(new KeyValuePair<string, int>($"{x},{y}", totalDistances));
                     }
                 }
             }
 
-            return distances32.Count.ToString() + " " + distances1000.Count.ToString();
+            return distances.Count.ToString();
         }
     }
 }

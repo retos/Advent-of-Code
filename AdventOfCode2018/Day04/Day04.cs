@@ -10,7 +10,7 @@ namespace AdventOfCode2018.Day04
         public override string Title => "--- Day 4: Repose Record ---";
         public override bool Ignore => true;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             List<Guard> guards = new List<Guard>();
             string lastGuardId = string.Empty;
@@ -78,7 +78,7 @@ namespace AdventOfCode2018.Day04
             return $"answer: {answer}";
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             List<Guard> guards = new List<Guard>();
             string lastGuardId = string.Empty;

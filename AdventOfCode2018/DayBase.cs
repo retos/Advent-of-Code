@@ -56,13 +56,13 @@ namespace AdventOfCode2018
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]");
                 stopwatch.Restart();                
-                Console.WriteLine($"{className}, part 1     : {Part1(Input)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 1     : {Part1(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]");
                 stopwatch.Restart();
-                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]");
                 stopwatch.Restart();
-                Console.WriteLine($"{className}, part 2     : {Part2(Input)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 2     : {Part2(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]");
                 Console.WriteLine();
             }
             else
@@ -73,7 +73,7 @@ namespace AdventOfCode2018
             Console.WriteLine();
 
         }
-        public abstract string Part1(List<string> input);
-        public abstract string Part2(List<string> input);
+        public abstract string Part1(List<string> input, bool isTestRun);
+        public abstract string Part2(List<string> input, bool isTestRun);
     }
 }

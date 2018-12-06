@@ -11,7 +11,7 @@ namespace AdventOfCode2018.Day03
 
         public override bool Ignore => true;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             List<Claim> claims = new List<Claim>();
 
@@ -51,7 +51,7 @@ namespace AdventOfCode2018.Day03
             return c;
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             List<Claim> claims = new List<Claim>();
 

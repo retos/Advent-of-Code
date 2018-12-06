@@ -12,13 +12,13 @@ namespace AdventOfCode2018.Day05
 
         public override bool Ignore => true;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             string reducedPolymer = RunReductionPart1(input[0]);
             return reducedPolymer.Length.ToString(); 
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             List<KeyValuePair<char, string>> reductionList = new List<KeyValuePair<char, string>>();
             string polymer = input[0];

@@ -12,12 +12,12 @@ namespace AdventOfCode2018.Day07
 
         public override bool Ignore => true;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             return input.Count.ToString();
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             return input.Count.ToString();
         }

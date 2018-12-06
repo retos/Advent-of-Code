@@ -11,14 +11,14 @@ namespace AdventOfCode2018.Day01
 
         public override bool Ignore => true;
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             DataTable dt = new DataTable();
             int frequency = (int)dt.Compute($"0 {string.Join(" ", input)}", "");
             return $"Last frequency: {frequency}";
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             int frequency = 0;
             List<string> frequencyHistory = new List<string>();

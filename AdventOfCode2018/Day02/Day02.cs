@@ -24,7 +24,7 @@ namespace AdventOfCode2018.Day02
             return difference;
         }
 
-        public override string Part1(List<string> input)
+        public override string Part1(List<string> input, bool isTestRun)
         {
             int doppelt = 0;
             int dreifach = 0;
@@ -52,7 +52,7 @@ namespace AdventOfCode2018.Day02
             return $"checksum: {doppelt * dreifach}";
         }
 
-        public override string Part2(List<string> input)
+        public override string Part2(List<string> input, bool isTestRun)
         {
             string s1 = string.Empty;
             string s2 = string.Empty;
