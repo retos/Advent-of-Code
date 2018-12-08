@@ -26,6 +26,8 @@ namespace AdventOfCode2018
         public abstract string Title { get; }
         public abstract bool Ignore { get; }
 
+        public int SortOrder => int.Parse(GetType().Name.Substring(3,2));
+
         private List<string> ReadInput(string filename)
         {
             StreamReader reader = new StreamReader(System.IO.Path.Combine(GetType().Name, filename));
@@ -42,15 +44,10 @@ namespace AdventOfCode2018
         public void Calculate()
         {
             string className = GetType().Name;
-
-            if (Title.Equals(string.Empty))
-            {
-                Console.WriteLine(className);
-            }
-            else
-            {
-                Console.WriteLine(Title);
-            }
+            
+            if (Ignore) { Console.ForegroundColor = ConsoleColor.DarkCyan; }
+            Console.WriteLine((string.IsNullOrEmpty(Title)) ? className : Title);
+            if (Ignore) { Console.ForegroundColor = ConsoleColor.Gray; }
 
             if (!Ignore)
             {
@@ -65,12 +62,6 @@ namespace AdventOfCode2018
                 Console.WriteLine($"{className}, part 2     : {Part2(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]");
                 Console.WriteLine();
             }
-            else
-            {
-                Console.WriteLine("Ignored");
-            }
-
-            Console.WriteLine();
 
         }
         public abstract string Part1(List<string> input, bool isTestRun);

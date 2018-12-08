@@ -51,6 +51,13 @@
     <Compile Include="Day03\Claim.cs" />
     <Compile Include="Day04\Guard.cs" />
     <Compile Include="Day06\Coordinates.cs" />
+    <Compile Include="Day07\Step.cs" />
+    <Compile Include="Day07\StepsInstruction.cs" />
+    <Compile Include="Day07\Worker.cs" />
+    <Compile Include="Day08\Node.cs" />
+    <Compile Include="Day10\Day10.cs" />
+    <Compile Include="Day09\Day09.cs" />
+    <Compile Include="Day08\Day08.cs" />
     <Compile Include="Day07\Day07.cs" />
     <Compile Include="Day06\Day06.cs" />
     <Compile Include="Day05\Day05.cs" />
@@ -67,6 +74,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Day10\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day10\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day09\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day09\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day08\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day08\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day07\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

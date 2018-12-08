@@ -18,7 +18,7 @@ namespace AdventOfCode2018
                     .ToList();
 
 
-            foreach (IDay day in instances.OrderBy(d => d.GetType().Name))
+            foreach (IDay day in instances.OrderBy(d => d.SortOrder))
             {
                 day.Calculate();
             }

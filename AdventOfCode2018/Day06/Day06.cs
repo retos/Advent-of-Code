@@ -8,9 +8,11 @@ namespace AdventOfCode2018.Day06
 {
     internal class Day06 : DayBase
     {
-        public override string Title => "";
+        //how it could be done: https://en.wikipedia.org/wiki/Fortune%27s_algorithm
+        //Or this one: https://www.reddit.com/r/adventofcode/comments/a3q22l/day_6_radialexpansion_visualization/
+        public override string Title => "--- Day 6: Chronal Coordinates ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
