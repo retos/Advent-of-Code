@@ -17,7 +17,7 @@ namespace AdventOfCode2018.Day09
             string answer = "";
             foreach (string s in input)
             {
-                answer += CalculateWinnerScore(s, false);
+                answer += CalculateWinnerScore(s, false) + Environment.NewLine;
             }
             return answer;
         }
@@ -74,18 +74,10 @@ namespace AdventOfCode2018.Day09
             }
 
             return $"players {numberOfPlayers}, max-marble {highestMarbleValue}, winning-score {playerScores.Max()}       ";
-            //return playerScores.IndexOf(winnerScore).ToString();
-
-
-            //return input.Count.ToString();
         }
 
         public override string Part2(List<string> input, bool isTestRun)
         {
-            if (isTestRun)
-            {
-                return "skipped";
-            }
             string answer = "";
             foreach (string s in input)
             {

@@ -67,9 +67,8 @@
     <Compile Include="Day07\StepsInstruction.cs" />
     <Compile Include="Day07\Worker.cs" />
     <Compile Include="Day08\Node.cs" />
-    <Compile Include="Day10\IRandomAccessStream.cs" />
     <Compile Include="Day10\Marker.cs" />
-    <Compile Include="Day10\MarkerManager.cs" />
+    <Compile Include="Day12\Day12.cs" />
     <Compile Include="Day11\Day11.cs" />
     <Compile Include="Day10\Day10.cs" />
     <Compile Include="Day09\Day09.cs" />
@@ -91,6 +90,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Day12\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day12\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day11\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
