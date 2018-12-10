@@ -88,21 +88,18 @@ namespace AdventOfCode2018.Day10
             for (int y = 0; y < maxY+ 1; y++)
             {
                 List<Marker> markersInThisLine = markers.Where(m => y.Equals(m.Y - shiftY)).ToList();
-                if (markersInThisLine.Any())
+                int maxPos = markersInThisLine.Max(m => m.X);
+                for (int x = 0; x <= maxPos + 1; x++)
                 {
-                    int maxPos = markersInThisLine.Max(m => m.X);
-                    for (int x = 0; x <= maxPos + 1; x++)
+                    if (markers.Any(m => y.Equals(m.Y - shiftY) && x.Equals(m.X - shiftX)))
                     {
-                        if (markers.Any(m => y.Equals(m.Y - shiftY) && x.Equals(m.X - shiftX)))
-                        {
-                            text += "#";
-                        }
-                        else
-                        {
-                            text += " ";
-                        }
-
+                        text += "#";
                     }
+                    else
+                    {
+                        text += " ";
+                    }
+
                 }
                 text += Environment.NewLine;
             }
