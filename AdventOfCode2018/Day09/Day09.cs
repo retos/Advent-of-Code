@@ -10,11 +10,10 @@ namespace AdventOfCode2018.Day09
     {
         public override string Title => "--- Day 9: Marble Mania ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
-        {
-            return "skipped";
+        {            
             string answer = "";
             foreach (string s in input)
             {
@@ -27,7 +26,7 @@ namespace AdventOfCode2018.Day09
         {
             List<string> pieces = s.Split(' ').ToList();
             int numberOfPlayers = int.Parse(pieces[0]);
-            List<int> playerScores = new List<int>();
+            List<ulong> playerScores = new List<ulong>();
             for (int i = 0; i < numberOfPlayers; i++)
             {
                 playerScores.Add(0);
@@ -48,7 +47,7 @@ namespace AdventOfCode2018.Day09
                 int targetIndex = (currentPositionInList + 2) % marbles.Count;//endposition berechnen indem man über die loop-grenze hinaus kann
                 if (i % 23 == 0)//falls die kugel aber ein vielfaches von 23 ist wird sie behalten (+score)
                 {
-                    playerScores[i % numberOfPlayers] += i;
+                    playerScores[i % numberOfPlayers] += (ulong)i;
                     // & die kugel 7 nach links (gegenuhrzeigersinn) wird entfernt (+ score)
                     if (currentPositionInList >= 7)
                     {
@@ -59,7 +58,7 @@ namespace AdventOfCode2018.Day09
                         targetIndex = marbles.Count + currentPositionInList - 7;
                     }
 
-                    playerScores[i % numberOfPlayers] += marbles[targetIndex];
+                    playerScores[i % numberOfPlayers] += (ulong)marbles[targetIndex];
                     marbles.RemoveAt(targetIndex);
                     // -> die kugel nach rechts ist die neue aktive kugel im kreis
                 }
@@ -68,6 +67,9 @@ namespace AdventOfCode2018.Day09
                     marbles.Insert(targetIndex, i);
                 }
                 currentPositionInList = targetIndex;
+
+                Console.SetCursorPosition(0, 0);
+                Console.Write($"{i} / {highestMarbleValue}");
 
             }
 
