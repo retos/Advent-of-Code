@@ -4,13 +4,13 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace AdventOfCode2018.Day12
+namespace AdventOfCode2018.Day13
 {
-    internal class Day12 : DayBase
+    internal class Day13 : DayBase
     {
         public override string Title => "";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {

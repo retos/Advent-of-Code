@@ -33,23 +33,34 @@ namespace AdventOfCode2018.Day11
             int consoleXPosition = Console.CursorLeft;
             int consoleYPosition = Console.CursorTop;
 
+            int squaresize;
             int powerHigh = 0;
+            int powerHighLastSquareSize = 0;
             string cordinatesHigh = string.Empty;
-            for (int i = 3; i <= 300; i++)
+            for (squaresize = 3; squaresize <= 300; squaresize++)
             {
                 Console.SetCursorPosition(0, consoleYPosition+1);
                 int currentPower = 0;
-                string coordinates = GetCoordinatesOfLargestPowerSquare(i, ref currentPower);
-                Console.WriteLine($"Current coordinates: {coordinates} power: {currentPower.ToString()} square: {i}                  ");
+                string coordinates = GetCoordinatesOfLargestPowerSquare(squaresize, ref currentPower);
+                Console.WriteLine($"Current coordinates: {coordinates} power: {currentPower.ToString()} square: {squaresize}                  ");
                 if (currentPower > powerHigh)
                 {
                     powerHigh = currentPower;
                     cordinatesHigh = coordinates;
-                    Console.WriteLine($"Highest coordinates: {cordinatesHigh} power: {powerHigh.ToString()} square: {i}                  ");
+                    Console.WriteLine($"Highest coordinates: {cordinatesHigh} power: {powerHigh.ToString()} square: {squaresize}                  ");
+                }
+
+                powerHighLastSquareSize = currentPower;
+                if (powerHighLastSquareSize < powerHigh)
+                {
+                    break;
                 }
             }
+            Console.SetCursorPosition(0, consoleYPosition + 1);
+            Console.WriteLine("                                                                                             ");
+            Console.WriteLine("                                                                                             ");
             Console.SetCursorPosition(consoleXPosition, consoleYPosition);
-            return $"{cordinatesHigh},{powerHigh.ToString()}";
+            return $"{cordinatesHigh},{squaresize-1}";
         }
 
         internal string GetCoordinatesOfLargestPowerSquare(int gridSize, ref int power)

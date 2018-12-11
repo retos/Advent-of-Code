@@ -8,9 +8,9 @@ namespace AdventOfCode2018.Day11
 {
     internal class Day11 : DayBase
     {
-        public override string Title => "";
+        public override string Title => "--- Day 11: Chronal Charge ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
@@ -21,19 +21,11 @@ namespace AdventOfCode2018.Day11
         }
 
         public override string Part2(List<string> input, bool isTestRun)
-        {
-            if (!isTestRun)
-            {
-                int dimensions = 300;// (isTestRun)? 5 : 300 ;
-                FuelGrid grid = new FuelGrid(int.Parse(input[0]), dimensions);
+        {            
+            int dimensions = 300;// (isTestRun)? 5 : 300 ;
+            FuelGrid grid = new FuelGrid(int.Parse(input[0]), dimensions);
 
-                return grid.GetCoordinatesOfLargestPowerSquareDynamic();
-            }
-            else
-            {
-                return "testrun is ignored";
-            }
-
+            return grid.GetCoordinatesOfLargestPowerSquareDynamic();
         }
     }
 }
