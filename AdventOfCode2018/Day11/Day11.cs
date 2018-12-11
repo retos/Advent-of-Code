@@ -14,12 +14,26 @@ namespace AdventOfCode2018.Day11
 
         public override string Part1(List<string> input, bool isTestRun)
         {
-            return input.Count.ToString();
+            int dimensions = 300;// (isTestRun)? 5 : 300 ;
+            FuelGrid grid = new FuelGrid(int.Parse(input[0]), dimensions);
+            int i = 0;
+            return grid.GetCoordinatesOfLargestPowerSquare(3, ref i);
         }
 
         public override string Part2(List<string> input, bool isTestRun)
         {
-            return input.Count.ToString();
+            if (!isTestRun)
+            {
+                int dimensions = 300;// (isTestRun)? 5 : 300 ;
+                FuelGrid grid = new FuelGrid(int.Parse(input[0]), dimensions);
+
+                return grid.GetCoordinatesOfLargestPowerSquareDynamic();
+            }
+            else
+            {
+                return "testrun is ignored";
+            }
+
         }
     }
 }

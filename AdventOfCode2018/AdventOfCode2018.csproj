@@ -68,6 +68,8 @@
     <Compile Include="Day07\Worker.cs" />
     <Compile Include="Day08\Node.cs" />
     <Compile Include="Day10\Marker.cs" />
+    <Compile Include="Day11\FuelCell.cs" />
+    <Compile Include="Day11\FuelGrid.cs" />
     <Compile Include="Day12\Day12.cs" />
     <Compile Include="Day11\Day11.cs" />
     <Compile Include="Day10\Day10.cs" />

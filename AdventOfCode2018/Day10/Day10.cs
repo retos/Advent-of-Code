@@ -15,9 +15,9 @@ namespace AdventOfCode2018.Day10
     {
         public List<Marker> Markers { get; set; }
 
-        public override string Title => "";
+        public override string Title => "--- Day 10: The Stars Align ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
