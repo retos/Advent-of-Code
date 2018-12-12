@@ -88,8 +88,6 @@ namespace AdventOfCode2017
             Dictionary<string, int> spiralMemory = new Dictionary<string, int>();
             spiralMemory["0,0"] = 1;
 
-            int result = 0;
-
             // Get the x,y coordinate for each step of i. 
             for (; ;)
             {
