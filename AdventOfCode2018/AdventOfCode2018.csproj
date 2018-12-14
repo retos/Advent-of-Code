@@ -71,6 +71,11 @@
     <Compile Include="Day11\FuelCell.cs" />
     <Compile Include="Day11\FuelGrid.cs" />
     <Compile Include="Day12\Combination.cs" />
+    <Compile Include="Day13\Cart.cs" />
+    <Compile Include="Day13\Direction.cs" />
+    <Compile Include="Day16\Day16.cs" />
+    <Compile Include="Day15\Day15.cs" />
+    <Compile Include="Day14\Day14.cs" />
     <Compile Include="Day13\Day13.cs" />
     <Compile Include="Day12\Day12.cs" />
     <Compile Include="Day11\Day11.cs" />
@@ -94,6 +99,24 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Day16\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day16\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day15\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day15\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day14\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day14\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day13\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
