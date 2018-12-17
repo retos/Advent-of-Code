@@ -21,9 +21,27 @@ namespace AdventOfCode2018.Day17
                 int waterCount = 0;
                 for (int x = 0; x < Map.Length; x++)
                 {
-                    for (int y = TranslateX(instructions.Min(i => i.StartX)); y < Map[0].Length; y++)
+                    for (int y = TranslateY(instructions.Min(i => i.StartY)); y < Map[0].Length; y++)
                     {
                         if (Map[x][y].Equals('~') || Map[x][y].Equals('|'))
+                        {
+                            waterCount++;
+                        }
+                    }
+                }
+                return waterCount;
+            }
+        }
+        public int WaterCountStillWater
+        {
+            get
+            {
+                int waterCount = 0;
+                for (int x = 0; x < Map.Length; x++)
+                {
+                    for (int y = TranslateY(instructions.Min(i => i.StartY)); y < Map[0].Length; y++)
+                    {
+                        if (Map[x][y].Equals('~'))
                         {
                             waterCount++;
                         }
@@ -217,7 +235,7 @@ namespace AdventOfCode2018.Day17
         private void SetChar(int waterPositionX, int waterPositionY, char c)
         {
             Map[TranslateX(waterPositionX)][TranslateY(waterPositionY)] = c;
-            PrintMap();
+            //PrintMap();
         }
 
         private char GetChar(int waterPositionX, int waterPositionY)
@@ -259,10 +277,6 @@ namespace AdventOfCode2018.Day17
 
         }
 
-        //internal void GeneratePicture(int x, int y)
-        //{
-
-        //}
         internal void GeneratePicture(int? xMarker, int? yMarker)
         {
             Bitmap bitmap = new Bitmap(Map.Length + 1, Map[0].Length + 1);

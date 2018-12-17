@@ -10,23 +10,18 @@ namespace AdventOfCode2018.Day17
     {
         public override string Title => "";
 
-        public override bool Ignore => true;
+        public override bool Ignore => false;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
             MapManager manager = new MapManager(input, isTestRun);
-            manager.PrintMap();
             manager.PourWater(500, 0);
-
-            //Real Data Stopped at: 26640
-
-            //31955 is too high
-            return manager.WaterCount.ToString();
+            return $"all water: {manager.WaterCount}, only still water: {manager.WaterCountStillWater}";
         }
 
         public override string Part2(List<string> input, bool isTestRun)
         {
-            return input.Count.ToString();
+            return "see first part...";
         }
     }
 }
