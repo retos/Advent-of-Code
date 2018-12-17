@@ -73,6 +73,13 @@
     <Compile Include="Day12\Combination.cs" />
     <Compile Include="Day13\Cart.cs" />
     <Compile Include="Day13\Direction.cs" />
+    <Compile Include="Day15\Coordinates.cs" />
+    <Compile Include="Day15\Route.cs" />
+    <Compile Include="Day15\Unit.cs" />
+    <Compile Include="Day17\Instruction.cs" />
+    <Compile Include="Day17\MapManager.cs" />
+    <Compile Include="Day18\Day18.cs" />
+    <Compile Include="Day17\Day17.cs" />
     <Compile Include="Day16\Day16.cs" />
     <Compile Include="Day15\Day15.cs" />
     <Compile Include="Day14\Day14.cs" />
@@ -99,6 +106,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Day18\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day18\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day17\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day17\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day16\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
