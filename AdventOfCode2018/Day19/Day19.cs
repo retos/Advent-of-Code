@@ -4,9 +4,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace AdventOfCode2018.Day17
-{
-    internal class Day17 : DayBase
+namespace AdventOfCode2018.Day19{
+    internal class Day19 : DayBase
     {
         public override string Title => "";
 
@@ -14,14 +13,12 @@ namespace AdventOfCode2018.Day17
 
         public override string Part1(List<string> input, bool isTestRun)
         {
-            MapManager manager = new MapManager(input, isTestRun);
-            manager.PourWater(500, 0);
-            return $"all water: {manager.WaterCount}, only still water: {manager.WaterCountStillWater}";
+            return input.Count.ToString();
         }
 
         public override string Part2(List<string> input, bool isTestRun)
         {
-            return "see first part...";
+            return input.Count.ToString();
         }
     }
 }

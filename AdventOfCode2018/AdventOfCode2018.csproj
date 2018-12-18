@@ -78,6 +78,7 @@
     <Compile Include="Day15\Unit.cs" />
     <Compile Include="Day17\Instruction.cs" />
     <Compile Include="Day17\MapManager.cs" />
+    <Compile Include="Day19\Day19.cs" />
     <Compile Include="Day18\Day18.cs" />
     <Compile Include="Day17\Day17.cs" />
     <Compile Include="Day16\Day16.cs" />
@@ -106,6 +107,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Day19\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day19\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day18\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
