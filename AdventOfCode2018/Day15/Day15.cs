@@ -77,7 +77,7 @@ namespace AdventOfCode2018.Day15
                             }
                             List<Coordinates> targetTiles = GetAdjascentEmptyTiles(enemies);
                             Route routeCosts = GetRoute(unit.X, unit.Y);
-                            foreach (var tile in targetTiles)
+                            foreach (Coordinates tile in targetTiles)
                             {
                                 Coordinates costCoordinates = routeCosts.ReachableTiles.Where(r => r.X.Equals(tile.X) && r.Y.Equals(tile.Y)).FirstOrDefault();
                                 tile.Cost = (costCoordinates != null) ? costCoordinates.Cost : int.MaxValue;

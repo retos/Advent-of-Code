@@ -76,6 +76,8 @@
     <Compile Include="Day15\Coordinates.cs" />
     <Compile Include="Day15\Route.cs" />
     <Compile Include="Day15\Unit.cs" />
+    <Compile Include="Day16\OpCode.cs" />
+    <Compile Include="Day16\Sample.cs" />
     <Compile Include="Day17\Instruction.cs" />
     <Compile Include="Day17\MapManager.cs" />
     <Compile Include="Day19\Day19.cs" />

@@ -8,9 +8,9 @@ namespace AdventOfCode2018.Day18
 {
     internal class Day18 : DayBase
     {
-        public override string Title => "";
+        public override string Title => "--- Day 18: Settlers of The North Pole ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
         public char[][] Map { get; set; }
         public char[][] NextMap { get; set; }
         public string LumberAndWood
@@ -117,6 +117,7 @@ namespace AdventOfCode2018.Day18
 
         private char[][] DeepCopy(char[][] map)
         {
+            //TODO Discuss DeepCopy
             char[][] deepCopy = new char[map.Length][];
             for (int y = 0; y < map[0].Length; y++)
             {
