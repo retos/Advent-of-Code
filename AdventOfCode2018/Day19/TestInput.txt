@@ -1,3 +1,8 @@
-﻿[1518-11-01 00:00] Guard #10 begins shift
-[1518-11-01 00:05] falls asleep
-[1518-11-01 00:25] wakes up
+﻿#ip 0
+seti 5 0 1
+seti 6 0 2
+addi 0 1 0
+addr 1 2 3
+setr 1 0 0
+seti 8 0 4
+seti 9 0 5
