@@ -53,13 +53,13 @@ namespace AdventOfCode2018
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 1 TEST: {Part1(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]        ");
                 stopwatch.Restart();                
-                Console.WriteLine($"{className}, part 1     : {Part1(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 1     : {Part1(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]        ");
                 stopwatch.Restart();
-                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 2 TEST: {Part2(TestInput, true)} [{stopwatch.ElapsedMilliseconds}ms]        ");
                 stopwatch.Restart();
-                Console.WriteLine($"{className}, part 2     : {Part2(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]");
+                Console.WriteLine($"{className}, part 2     : {Part2(Input, false)} [{stopwatch.ElapsedMilliseconds}ms]        ");
                 Console.WriteLine();
             }
 

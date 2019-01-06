@@ -22,13 +22,14 @@ namespace AdventOfCode2018.Day15
                 return "skipped";
             }
             List<Unit> units = DoBattle(3, input, isTestRun);
-
             return $"{(Round) * units.Where(u => !u.Dead).Sum(u => u.Hitpoints)}";
         }
 
         private List<Unit> DoBattle(int attackPower, List<string> input, bool isTestRun)
         {
             IsDebug = false;
+            Console.Write("Set IsDebug to true to get more info...");
+            Console.SetCursorPosition(0, Console.CursorTop);
 
             //read input
             Map = input.Select(i => i.ToArray()).ToArray();
@@ -64,7 +65,7 @@ namespace AdventOfCode2018.Day15
 
             //order for round is reading order of position
             Round = 0;
-            PrintMap(units);
+            if (IsDebug) { PrintMap(units); }
 
             bool battleInProgress = true;
             do
@@ -94,7 +95,7 @@ namespace AdventOfCode2018.Day15
                                 unit.Step(targetRoute.TargetPosition);
                             }
 
-                            PrintMap(units);
+                            if (IsDebug) { PrintMap(units); }
                         }
 
                         //ATTACK
@@ -120,7 +121,7 @@ namespace AdventOfCode2018.Day15
                 {
                     Round++;
                 }
-                PrintMap(units);
+                if (IsDebug) { PrintMap(units); }
             } while (battleInProgress);
 
             return units;
@@ -231,10 +232,8 @@ namespace AdventOfCode2018.Day15
                     else
                     {
                         Console.Write('T');
-                    }
-                    
+                    }                    
                 }
-
                 Console.ResetColor();
             }           
         }
@@ -256,19 +255,13 @@ namespace AdventOfCode2018.Day15
             }
 
             Console.SetCursorPosition(Map[0].Length + 2, 0);
-            Console.Write($"round: {Round}");
-            
-
+            Console.Write($"round: {Round}");         
 
             Console.SetCursorPosition(Map[0].Length + 2, 1);
             Console.Write($"elves count:    {units.Where(u => !u.Dead && u.Type.Equals('E')).Count()}");
 
             Console.SetCursorPosition(Map[0].Length + 2, 2);
             Console.Write($"goblins count:  {units.Where(u => !u.Dead && u.Type.Equals('G')).Count()}");
-
-            //Console.SetCursorPosition(Map[0].Length + 2, 3);
-            //Console.Write("Game is paused, hit key for next round.");
-            //Console.ReadKey();
         }
     
 
