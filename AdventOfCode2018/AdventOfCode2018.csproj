@@ -18,7 +18,7 @@
     <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -85,6 +85,7 @@
     <Compile Include="Day20\Coordinates.cs" />
     <Compile Include="Day20\Directions.cs" />
     <Compile Include="Day20\Map.cs" />
+    <Compile Include="Day20\Room.cs" />
     <Compile Include="Day20\Tile.cs" />
     <Compile Include="Day20\TileInfo.cs" />
     <Compile Include="Day22\Day22.cs" />

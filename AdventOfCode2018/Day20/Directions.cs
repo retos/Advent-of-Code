@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,21 +10,7 @@ namespace AdventOfCode2018.Day20
         private string directionString;
         private string after;
 
-        public Directions(string directionString)
-        {
-            int i = 0;
-
-            if (!directionString.Contains('(') && !directionString.Contains('|') )
-            {
-                Steps = directionString;
-            }
-            else
-            {
-                NextDirections = Directions.ReadDirections(directionString.Substring(i), null);
-            }
-        }
-
-        public Directions(string directionString, string after)
+        public Directions(string directionString, ref List<Directions> after)
         {
             int i = 0;
             Steps = GetSteps(directionString, ref i);
@@ -32,16 +19,41 @@ namespace AdventOfCode2018.Day20
             if (i<=directionString.Length)
             {
                 restAfterBracket = directionString.Substring(i);
-            }
-            if (string.IsNullOrEmpty(after))
-            {
-                NextDirections = ReadDirections(bracketPart, restAfterBracket);
+                List<Directions> rest = ReadDirections(restAfterBracket, ref after);
+                NextDirections = ReadDirections(bracketPart, ref rest);
             }
             else
             {
-                NextDirections = ReadDirections(bracketPart, $"{restAfterBracket}{after}");
+                NextDirections = ReadDirections(bracketPart, ref after);
+            }
+        }
+
+        internal void WriteToMap(ref Hashtable map, int x, int y)
+        {
+            Room r;
+            if (!map.ContainsKey($"{x},{y}"))
+            {
+                r = new Room(ref map, x, y);
+            }
+            else
+            {
+                r = ((Room)map[$"{x},{y}"]);
             }
 
+            WriteToMap(ref map, r);
+        }
+
+        private void WriteToMap(ref Hashtable map, Room r)
+        {
+            foreach (char c in Steps)
+            {
+                r = r.AddRoom(c);
+            }
+
+            foreach (Directions directions in NextDirections)
+            {
+                directions.WriteToMap(ref map, r);
+            }
         }
 
         private string GetBracketContent(string directionString, ref int i)
@@ -79,12 +91,12 @@ namespace AdventOfCode2018.Day20
 
         public string Steps { get; set; }
         public List<Directions> NextDirections{ get; set; }
-        public static List<Directions> ReadDirections(string input, string after)
+
+        public static List<Directions> ReadDirections(string input, ref List<Directions> after)
         {
             if (string.IsNullOrEmpty(input))
             {
-                input = after;
-                after = string.Empty;
+                return after;
             }
             List<Directions> compiledDirections = new List<Directions>();
             /*
@@ -128,7 +140,7 @@ namespace AdventOfCode2018.Day20
                 {
                     if (stepGroups.Count == 0)
                     {//No parallel steps ad only this
-                        compiledDirections.Add(new Directions(input, after));
+                        compiledDirections.Add(new Directions(input, ref after));
                     }
                     else
                     {//Add the remainder
@@ -137,35 +149,11 @@ namespace AdventOfCode2018.Day20
                 }
             }
 
-
             foreach (string s in stepGroups)
             {
-                compiledDirections.AddRange(ReadDirections(s, after));
-            }
-            
-           
+                compiledDirections.AddRange(ReadDirections(s, ref after));
+            }            
 
-
-            //    //NextDirections = new List<Directions>();
-            //    for (int i = 0; i < input.Length; i++)
-            //{
-            //    if (input[i] == '(')
-            //    {
-            //        //find matching closing bracket, and create sub-directions
-            //        string directionsInBrackets = GetsubdirectionString(i, input); ;
-            //        //NextDirections = GetNextDirections(directionsInBrackets);
-            //        stepGroups.Add(directionsInBrackets);
-            //        break;
-            //    }
-            //    else
-            //    {
-            //        stepGroups.Add(GetSteps(input, ref i));
-            //    }
-            //}
-            //foreach (string directionString in stepGroups)
-            //{
-            //    compiledDirections.Add(new Directions(directionString));
-            //}
             return compiledDirections;
         }
 
@@ -186,57 +174,5 @@ namespace AdventOfCode2018.Day20
             return input;            
         }
 
-        private List<Directions> GetNextDirections(string input)
-        {
-            List<string> nextDirectionStrings = new List<string>();
-            int openingBracketCount = 0;
-            string currentDirection = string.Empty;
-
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (input[i] == '|' && openingBracketCount == 0)
-                {
-                    nextDirectionStrings.Add(currentDirection);
-                    currentDirection = string.Empty;
-                }
-                else if (input[i] == '(')
-                {
-                    openingBracketCount++;
-                    currentDirection += input[i];
-                }
-                else if (input[i] == ')')
-                {
-                    currentDirection += input[i];
-                    openingBracketCount--;
-                }
-                else
-                {
-                    currentDirection += input[i];
-                }
-            }
-            nextDirectionStrings.Add(currentDirection);
-            return nextDirectionStrings.Select(s => new Directions(s)).ToList();
-        }
-
-        private static string GetsubdirectionString(int i, string input)
-        {
-            int openinbracketCount = 0;
-            for (int j = i; j < input.Length; j++)
-            {
-                if (input[j] == '(')
-                {
-                    openinbracketCount++;
-                }
-                else if (input[j] == ')')
-                {
-                    openinbracketCount--;
-                }
-                if (openinbracketCount == 0)
-                {
-                    return input.Substring(i+1, j-i-1);
-                }
-            }
-            throw new ArgumentException("given input couldn't be parsed.");
-        }
     }
 }

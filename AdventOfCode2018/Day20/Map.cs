@@ -17,6 +17,10 @@ namespace AdventOfCode2018.Day20
             BuildFloorPlan(directions, new List<Coordinates>() { new Coordinates(0, 0) });
         }
 
+        public Map()
+        {
+        }
+
         private List<Coordinates> BuildFloorPlan(Directions directions, List<Coordinates> startCoordinates)
         {
             //TODO die Geschwister korrekt ablegen

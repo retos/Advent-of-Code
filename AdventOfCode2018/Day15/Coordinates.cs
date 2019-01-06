@@ -14,9 +14,16 @@ namespace AdventOfCode2018.Day15
         /// Used in the 'Dijkstra Algorithm' to figure out if it has been visited
         /// </summary>
         public bool Visited { get; set; }
-        internal int Distance(int x, int y)
+        public bool IsTarget { get; internal set; }
+
+        internal int Distance(Coordinates targetCoordniates)
         {
-            return Math.Abs(x - X) + Math.Abs(y - Y);
+            return Math.Abs(targetCoordniates.X - X) + Math.Abs(targetCoordniates.Y - Y);
+        }
+        public override bool Equals(object obj)
+        {
+            Coordinates other = (Coordinates)obj;
+            return (other == null)? false : other.X.Equals(X) && other.Y.Equals(Y);
         }
     }
 }
