@@ -90,6 +90,7 @@
     <Compile Include="Day20\TileInfo.cs" />
     <Compile Include="Day22\Day22.cs" />
     <Compile Include="Day23\Day23.cs" />
+    <Compile Include="Day23\Nanobot.cs" />
     <Compile Include="Day24\Day24.cs" />
     <Compile Include="Day25\Day25.cs" />
     <Compile Include="Day21\Day21.cs" />
@@ -127,6 +128,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Day22\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day23\TestInputPart1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Day23\Input.txt">
