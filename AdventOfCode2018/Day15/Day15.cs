@@ -10,7 +10,7 @@ namespace AdventOfCode2018.Day15
     {
         public override string Title => "--- Day 15: Beverage Bandits ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
         public bool IsDebug { get; set; }
         public char[][] Map { get; set; }
         public List<Coordinates> WalkableCoordinates { get; private set; }
