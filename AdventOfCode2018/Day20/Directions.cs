@@ -30,29 +30,32 @@ namespace AdventOfCode2018.Day20
 
         internal void WriteToMap(ref Hashtable map, int x, int y)
         {
-            Room r;
-            if (!map.ContainsKey($"{x},{y}"))
-            {
-                r = new Room(ref map, x, y);
-            }
-            else
-            {
-                r = ((Room)map[$"{x},{y}"]);
-            }
-
-            WriteToMap(ref map, r);
+            Room r = Room.CreateRoom(ref map, x, y, string.Empty);
+            WriteToMap(ref map, r, string.Empty);
         }
 
-        private void WriteToMap(ref Hashtable map, Room r)
+        private void WriteToMap(ref Hashtable map, Room r, string routeToRoom)
         {
+            if (r.DirectionsStartingInThisRoom.Contains(this))
+            {
+                if (!r.RoutesToRoom.Contains(routeToRoom))
+                {
+                    throw new Exception("Direction and Room has been done before, but path is not logged in room");
+                }
+                return;//Abort, since we alredy did this directiontree for the received room
+            }
+
+            r.DirectionsStartingInThisRoom.Add(this);
+            string stepPuffer = string.Empty;
             foreach (char c in Steps)
             {
-                r = r.AddRoom(c);
+                stepPuffer += c;
+                r = r.AddRoom(c, $"{routeToRoom}{stepPuffer}");
             }
 
             foreach (Directions directions in NextDirections)
             {
-                directions.WriteToMap(ref map, r);
+                directions.WriteToMap(ref map, r, $"{routeToRoom}{Steps}");
             }
         }
 
