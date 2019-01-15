@@ -9,7 +9,7 @@ namespace AdventOfCode2018.Day19{
     {
         public override string Title => "--- Day 19: Go With The Flow ---";
 
-        public override bool Ignore => true;
+        public override bool Ignore => false;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
@@ -24,7 +24,19 @@ namespace AdventOfCode2018.Day19{
 
             do
             {
+                //Pattern?
+                /*
+ip=1 [0, 1, 65, 0, 1, 0] seti 1 0 4 [1, 1, 65, 0, 1, 0]
+ip=34 [33, 1, 49399, 0, 2, 0] seti 0 0 0 [0, 1, 49399, 0, 2, 0]
+
+
+ip=1 [0, 1, 49399, 0, 2, 0] seti 1 0 4 [1, 1, 49399, 0, 1, 0]
+ip=34 [33, 1, 1075243055, 0, 2, 0] seti 0 0 0 [0, 1, 1075243055, 0, 2, 0]
+                 */
+
+                Console.Write($"ip={ip} [{string.Join(", ", register)}] {instructions[ip].ToString()} ");
                 register = GetResult(register, instructions[ip], ref ip);
+                Console.WriteLine($"[{string.Join(", ", register)}]");
 
             } while (ip<instructions.Count && ip>=0);
  
