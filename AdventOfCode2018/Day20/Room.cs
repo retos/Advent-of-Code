@@ -49,7 +49,7 @@ namespace AdventOfCode2018.Day20
             }
         }
 
-        internal int Dijikstra(Room roomWithLongestPath, List<Room> roomList)
+        internal int Dijikstra(List<Room> roomList)
         {
             Room currentRoom = this;
             currentRoom.ShortestPath = 0;
@@ -68,8 +68,8 @@ namespace AdventOfCode2018.Day20
                 }
                 //pick cheapest one
                 currentRoom = roomList.Where(r => !r.Visited).OrderBy(r => r.ShortestPath).FirstOrDefault();
-            } while (!roomWithLongestPath.Visited);
-            return roomWithLongestPath.ShortestPath;
+            } while (roomList.Any(r => !r.Visited));
+            return roomList.Max(r => r.ShortestPath);
         }
 
         //private static string CalculateShortestPath(Room toRoom)

@@ -84,10 +84,7 @@
     <Compile Include="Day19\OpCode.cs" />
     <Compile Include="Day20\Coordinates.cs" />
     <Compile Include="Day20\Directions.cs" />
-    <Compile Include="Day20\Map.cs" />
     <Compile Include="Day20\Room.cs" />
-    <Compile Include="Day20\Tile.cs" />
-    <Compile Include="Day20\TileInfo.cs" />
     <Compile Include="Day22\Day22.cs" />
     <Compile Include="Day23\Day23.cs" />
     <Compile Include="Day23\Nanobot.cs" />

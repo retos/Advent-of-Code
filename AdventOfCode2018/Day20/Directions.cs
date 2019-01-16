@@ -55,6 +55,12 @@ namespace AdventOfCode2018.Day20
 
             foreach (Directions directions in NextDirections)
             {
+                //Use shorter path if exists
+                string shortestPath = r.RoutesToRoom.OrderBy(p => p.Count()).First();
+                if (shortestPath.Count() < routeToRoom.Count())
+                {
+                    routeToRoom = shortestPath;
+                }
                 directions.WriteToMap(ref map, r, $"{routeToRoom}{Steps}");
             }
         }
