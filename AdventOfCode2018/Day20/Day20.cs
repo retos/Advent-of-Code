@@ -27,7 +27,7 @@ namespace AdventOfCode2018.Day20
                 directions[0].WriteToMap(ref map, 0, 0);
                 List<Room> roomList = map.Values.Cast<Room>().ToList();
                 //TODO fix this and than the Dijkstra calculation can be removed for part 1 and part 2
-                //This gets the wrong result since my WriteToMap does depth first when drawing the map. Therefore if a shorter Path gets found. 
+                //This gets the wrong result since my WriteToMap does depth first when drawing the map with my "directions". Therefore if a shorter Path gets found, the following rooms do not get the shorter path...
                 //Room roomWithLongestShortPath = roomList.OrderByDescending(r => r.RoutesToRoom.OrderBy(p => p.Length).First().Length).First();
                 int shortestPath = ((Room)map["0,0"]).Dijikstra(roomList);
                 //Console.WriteLine($"input {reg[0]}, result {shortestPath}, expected {reg[1]}");
