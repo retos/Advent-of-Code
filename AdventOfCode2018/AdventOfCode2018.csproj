@@ -86,6 +86,7 @@
     <Compile Include="Day20\Directions.cs" />
     <Compile Include="Day20\Room.cs" />
     <Compile Include="Day22\Day22.cs" />
+    <Compile Include="Day22\Tile.cs" />
     <Compile Include="Day23\Day23.cs" />
     <Compile Include="Day23\Nanobot.cs" />
     <Compile Include="Day24\Day24.cs" />

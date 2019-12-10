@@ -10,7 +10,7 @@ namespace AdventOfCode2018.Day23
     {
         public override string Title => "";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {

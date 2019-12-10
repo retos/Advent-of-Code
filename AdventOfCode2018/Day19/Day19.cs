@@ -9,7 +9,7 @@ namespace AdventOfCode2018.Day19{
     {
         public override string Title => "--- Day 19: Go With The Flow ---";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public override string Part1(List<string> input, bool isTestRun)
         {
