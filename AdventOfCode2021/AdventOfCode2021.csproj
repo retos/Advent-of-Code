@@ -8,12 +8,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Day03\Input.txt">
+    <Compile Remove="Day03\**" />
+    <EmbeddedResource Remove="Day03\**" />
+    <None Remove="Day03\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Day03.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Day03\Day03.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Day03\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Day03\TestInput.txt">
+    </Content>
+    <Content Include="Day03\TestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Day02\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
