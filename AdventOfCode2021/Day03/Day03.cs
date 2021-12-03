@@ -2,7 +2,7 @@
 
 internal class Day03 : DayBase
 {
-    public override string Title => "--- Day 3: asdf! ---";
+    public override string Title => "--- Day 3: Binary Diagnostic ---";
     public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
