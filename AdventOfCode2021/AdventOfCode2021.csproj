@@ -18,10 +18,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="DayTemplate\Input.txt" />
+    <None Remove="DayTemplate\TestInput.txt" />
+    <None Remove="Day04\Input.txt" />
+    <None Remove="Day04\TestInput.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="Day03\Day03.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="DayTemplate\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DayTemplate\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day04\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day04\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Day03\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
