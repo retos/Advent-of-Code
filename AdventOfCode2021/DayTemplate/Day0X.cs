@@ -6,13 +6,28 @@ internal class Day50 : DayBase
     public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
-    {   
+    {
+        //X,Y map  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
+        //switch case string & int parsing                          Day 02 2021
+        //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
+        //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
+        //visualisation png                                         Day 10 2018
+
+
+
         return $"nothing";
     }
 
     public override string Part2(List<string> input, bool isTestRun)
     {
+        //X,Y map  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
+        //switch case string & int parsing                          Day 02 2021
+        //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
+        //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
+        //visualisation png                                         Day 10 2018
+
+
+
         return $"nothing";
     }
 }
-

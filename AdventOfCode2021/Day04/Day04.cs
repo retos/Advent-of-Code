@@ -3,7 +3,7 @@
 internal class Day04 : DayBase
 {
     public override string Title => "--- Day 4: Giant Squid ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
     {
