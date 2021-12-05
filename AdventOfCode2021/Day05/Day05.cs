@@ -3,7 +3,7 @@
 internal class Day05 : DayBase
 {
     public override string Title => "--- Day 5: Hydrothermal Venture ---";
-    public override bool Ignore => true;
+    public override bool Ignore => false;
 
     public int[,] Map { get; set; }
 
@@ -47,6 +47,20 @@ internal class Day05 : DayBase
             }
             Console.WriteLine();
         }
+        */
+
+        //write map to textfile
+        /*
+        StringBuilder stringBuilder = new StringBuilder();        
+        for (int y = 0; y <= xSize; y++)
+        {
+            for (int x = 0; x <= xSize; x++)
+            {
+                stringBuilder.Append(Map[x, y]);             
+            }
+            stringBuilder.Append(System.Environment.NewLine);
+        }
+        File.WriteAllText($"Day05_Part1_Testrun_{isTestRun}.html", $"<pre>{stringBuilder.ToString()}</pre>");        
         */
 
         //count overlaps: the number of points where at least two lines overlap
@@ -121,6 +135,20 @@ internal class Day05 : DayBase
             }
             Console.WriteLine();
         }
+        */
+
+        //write map to textfile
+        /*
+        StringBuilder stringBuilder = new StringBuilder();        
+        for (int y = 0; y <= xSize; y++)
+        {
+            for (int x = 0; x <= xSize; x++)
+            {
+                stringBuilder.Append(Map[x, y]);             
+            }
+            stringBuilder.Append(System.Environment.NewLine);
+        }
+        File.WriteAllText($"Day05_Part2_Testrun_{isTestRun}.html", $"<pre>{stringBuilder.ToString()}</pre>");        
         */
 
         //count overlaps: the number of points where at least two lines overlap
