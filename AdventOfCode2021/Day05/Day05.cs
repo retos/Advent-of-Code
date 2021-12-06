@@ -3,7 +3,7 @@
 internal class Day05 : DayBase
 {
     public override string Title => "--- Day 5: Hydrothermal Venture ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
 
     public int[,] Map { get; set; }
 

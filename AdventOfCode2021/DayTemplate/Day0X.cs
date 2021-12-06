@@ -7,7 +7,8 @@ internal class Day50 : DayBase
 
     public override string Part1(List<string> input, bool isTestRun)
     {
-        //X,Y map  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
+        //map[][]  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
+        //map[,]   (+output to console, write to textfile)          Day 05 2021
         //switch case string & int parsing                          Day 02 2021
         //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
         //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
@@ -21,6 +22,7 @@ internal class Day50 : DayBase
     public override string Part2(List<string> input, bool isTestRun)
     {
         //X,Y map  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
+        //map[,]   (+output to console, write to textfile)          Day 05 2021
         //switch case string & int parsing                          Day 02 2021
         //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
         //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
