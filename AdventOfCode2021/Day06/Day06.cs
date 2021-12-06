@@ -2,8 +2,8 @@
 
 internal class Day06 : DayBase
 {
-    public override string Title => "--- Day 6 ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 6: Lanternfish ---";
+    public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
     {
@@ -32,12 +32,15 @@ internal class Day06 : DayBase
 
     public override string Part2(List<string> input, bool isTestRun)
     {
+        //read data to usable format
         List<int> fishies = input[0].Split(',').Select(int.Parse).ToList();
-        
-        Dictionary<int, long> fishCounts = new();
+        Dictionary<int, long> fishCounts = new Dictionary<int, long>();
+        for (int i = 0; i <= 8; i++)
+        {
+            fishCounts[i] = fishies.Count(x => x == i);
+        }
 
-        for (int i = 0; i <= 8; i++) fishCounts[i] = fishies.Count(x => x == i);
-
+        //age them
         for (int i = 0; i < 256; i++)
         {
             long numberOfChildren = fishCounts[0];
