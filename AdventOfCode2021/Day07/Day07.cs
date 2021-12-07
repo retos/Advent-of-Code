@@ -3,7 +3,7 @@
 internal class Day07 : DayBase
 {
     public override string Title => "--- Day 7: The Treachery of Whales ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
     private Dictionary<int, int> costDictionary = new Dictionary<int, int>();
 
     public override string Part1(List<string> input, bool isTestRun)
