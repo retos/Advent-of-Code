@@ -13,6 +13,7 @@ internal class Day50 : DayBase
         //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
         //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
         //visualisation png                                         Day 10 2018
+        //dictionary                                                Day 06 2021
 
 
 
@@ -27,6 +28,7 @@ internal class Day50 : DayBase
         //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
         //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux
         //visualisation png                                         Day 10 2018
+        //dictionary                                                Day 06 2021
 
 
 
