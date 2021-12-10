@@ -111,6 +111,7 @@
     <Compile Include="Day04\Day04.cs" />
     <Compile Include="Day03\Day03.cs" />
     <Compile Include="Day02\Day02.cs" />
+    <Compile Include="Day25\SpacetimePoints.cs" />
     <Compile Include="DayBase.cs" />
     <Compile Include="IDay.cs" />
     <Compile Include="Program.cs" />

@@ -24,6 +24,12 @@
     <None Remove="Day06\TestInput.txt" />
     <None Remove="Day07\Input.txt" />
     <None Remove="Day07\TestInput.txt" />
+    <None Remove="Day08\Input.txt" />
+    <None Remove="Day08\TestInput.txt" />
+    <None Remove="Day09\Input.txt" />
+    <None Remove="Day09\TestInput.txt" />
+    <None Remove="Day10\Input.txt" />
+    <None Remove="Day10\TestInput.txt" />
     <None Remove="DayTemplate\Input.txt" />
     <None Remove="DayTemplate\TestInput.txt" />
     <None Remove="Day04\Input.txt" />
@@ -51,6 +57,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Day07\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day08\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day08\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day09\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day09\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day10\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day10\TestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DayTemplate\Input.txt">

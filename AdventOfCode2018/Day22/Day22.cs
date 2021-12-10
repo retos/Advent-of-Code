@@ -10,7 +10,7 @@ namespace AdventOfCode2018.Day22
     {
         public override string Title => "";
 
-        public override bool Ignore => false;
+        public override bool Ignore => true;
 
         public Tile[][] Map { get; set; }
 
