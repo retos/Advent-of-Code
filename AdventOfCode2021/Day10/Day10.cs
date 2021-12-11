@@ -2,8 +2,8 @@
 
 internal class Day10 : DayBase
 {
-    public override string Title => "--- Day 10 ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 10: Syntax Scoring ---";
+    public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
     {

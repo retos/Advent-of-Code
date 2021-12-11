@@ -1,6 +1,6 @@
-﻿namespace AdventOfCode2021.Day50;
+﻿namespace AdventOfCode2021.Day150;
 
-internal class Day50 : DayBase
+internal class Day150 : DayBase
 {
     public override string Title => "--- Day Template ---";
     public override bool Ignore => true;
