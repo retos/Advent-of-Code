@@ -3,7 +3,7 @@
 internal class Day11 : DayBase
 {
     public override string Title => "--- Day 11: Dumbo Octopus ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
     public int XMapCount { get; set; }
     public int YMapCount { get; set; }
     public int[,] Map { get; set; }

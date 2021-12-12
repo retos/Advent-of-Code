@@ -61,7 +61,11 @@ internal abstract class DayBase : IDay
     public abstract string Part1(List<string> input, bool isTestRun);
     public abstract string Part2(List<string> input, bool isTestRun);
 
-    //Some Helper Methods
+    /// <summary>
+    /// Returns an int[x,y] array of the input.
+    /// </summary>
+    /// <param name="input">the desired input, that needs to be processed</param>
+    /// <returns>int[x,y] array</returns>
     protected int[,] GetIntMap(List<string> input)
     {
         int[,] map = new int[input[0].Length, input.Count];

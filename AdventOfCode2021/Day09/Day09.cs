@@ -18,18 +18,7 @@ internal class Day09 : DayBase
         GlobalPrintCounter = 1;
         XDimension = input[0].Length-1;
         YDimension = input.Count-1;
-        char[][] map = input.Select(i => i.ToArray()).ToArray();
-        Map = new int[XDimension+1, YDimension+ 1];
-
-        //Migrate from 2d char Array to 2d int array 
-        //would be better to directly go for the int array...
-        for (int y = 0; y <= YDimension; y++)
-        {
-            for (int x = 0; x <= XDimension; x++)
-            {
-                Map[x, y] = int.Parse(map[y][x].ToString());
-            }
-        }
+        Map = GetIntMap(input);
 
         int risklevelSum = 0;
         //checking all the points
@@ -146,8 +135,7 @@ internal class Day09 : DayBase
         IsTestRun = isTestRun;
         XDimension = input[0].Length - 1;
         YDimension = input.Count - 1;
-        char[][] map = input.Select(i => i.ToArray()).ToArray();
-        Map = new int[XDimension + 1, YDimension + 1];
+        Map = GetIntMap(input);
 
         BelongsToBasin = new Dictionary<string, bool>();
 
@@ -156,7 +144,6 @@ internal class Day09 : DayBase
         {
             for (int x = 0; x <= XDimension; x++)
             {
-                Map[x, y] = int.Parse(map[y][x].ToString());
                 BelongsToBasin[$"{x},{y}"] = false;
             }
         }
