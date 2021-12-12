@@ -2,28 +2,21 @@
 
 internal class Day11 : DayBase
 {
-    public override string Title => "--- Day 11 ---";
+    public override string Title => "--- Day 11: Dumbo Octopus ---";
     public override bool Ignore => false;
-    public int XDimension { get; set; }
-    public int YDimension { get; set; }
+    public int XMapCount { get; set; }
+    public int YMapCount { get; set; }
     public int[,] Map { get; set; }
     public Dictionary<string, bool> Flashed { get; set; }
     public ulong TotalFlashcount { get; set; }
 
     public override string Part1(List<string> input, bool isTestRun)
     {
-        XDimension = input[0].Length - 1;
-        YDimension = input.Count - 1;
-        Map = new int[XDimension + 1, YDimension + 1];
-        TotalFlashcount = 0;
+        XMapCount = input[0].Length;
+        YMapCount = input.Count;
 
-        for (int y = 0; y <= YDimension; y++)
-        {
-            for (int x = 0; x <= XDimension; x++)
-            {
-                Map[x, y] = int.Parse(input[y][x].ToString());
-            }
-        }
+        TotalFlashcount = 0;
+        Map = GetIntMap(input);
 
         //STEPS
         for (int i = 1; i <= 100; i++)
@@ -31,9 +24,9 @@ internal class Day11 : DayBase
             Flashed = new();//reset flashdictionary
 
             //First, the energy level of each octopus increases by 1.
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     Map[x, y]++;
                 }
@@ -43,9 +36,9 @@ internal class Day11 : DayBase
             //If this causes an octopus to have an energy level greater than 9,
             //it also flashes.This process continues as long as new octopuses keep having their energy level increased beyond 9.
             //(An octopus can only flash at most once per step.)
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     if (Map[x, y] > 9)
                     {
@@ -56,9 +49,9 @@ internal class Day11 : DayBase
             }
 
             //Finally, any octopus that flashed during this step has its energy level set to 0, as it used all of its energy to flash.
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     if (Flashed.ContainsKey($"{x},{y}") && Flashed[$"{x},{y}"])
                     {
@@ -69,18 +62,20 @@ internal class Day11 : DayBase
             //PrintToConsole();
             TotalFlashcount = TotalFlashcount + (ulong)Flashed.Count();
         }
-        
+
 
         return $"{TotalFlashcount}";
     }
+
+
 
     private void PrintToConsole()
     {
         //Console.SetCursorPosition(Console.GetCursorPosition(), 0);
         Console.WriteLine();
-        for (int y = 0; y <= YDimension; y++)
+        for (int y = 0; y < YMapCount; y++)
         {
-            for (int x = 0; x <= XDimension; x++)
+            for (int x = 0; x < XMapCount; x++)
             {
                 Console.Write(Map[x,y]);
             }
@@ -103,7 +98,7 @@ internal class Day11 : DayBase
                 }
             }
             //if right-up exists check
-            if (x < XDimension && y > 0)
+            if (x < XMapCount-1 && y > 0)
             {
                 Map[x + 1, y - 1]++;
                 if (Map[x + 1, y - 1] > 9)
@@ -112,7 +107,7 @@ internal class Day11 : DayBase
                 }
             }
             //if right exists check
-            if (x < XDimension)
+            if (x < XMapCount-1)
             {
                 Map[x + 1, y]++;
                 if (Map[x + 1, y] > 9)
@@ -121,7 +116,7 @@ internal class Day11 : DayBase
                 }
             }
             //if right-down exists check
-            if (x < XDimension && y < YDimension)
+            if (x < XMapCount-1 && y < YMapCount-1)
             {
                 Map[x + 1, y + 1]++;
                 if (Map[x + 1, y + 1] > 9)
@@ -130,7 +125,7 @@ internal class Day11 : DayBase
                 }
             }
             //if down exists check
-            if (y < YDimension)
+            if (y < YMapCount-1)
             {
                 Map[x, y + 1]++;
                 if (Map[x, y + 1] > 9)
@@ -139,7 +134,7 @@ internal class Day11 : DayBase
                 }
             }
             //if down-left exists check
-            if (y < YDimension && x > 0)
+            if (y < YMapCount-1 && x > 0)
             {
                 Map[x - 1, y + 1]++;
                 if (Map[x - 1, y + 1] > 9)
@@ -170,14 +165,14 @@ internal class Day11 : DayBase
 
     public override string Part2(List<string> input, bool isTestRun)
     {
-        XDimension = input[0].Length - 1;
-        YDimension = input.Count - 1;
-        Map = new int[XDimension + 1, YDimension + 1];
+        XMapCount = input[0].Length;
+        YMapCount = input.Count;
+        Map = GetIntMap(input);
         TotalFlashcount = 0;
 
-        for (int y = 0; y <= YDimension; y++)
+        for (int y = 0; y < YMapCount; y++)
         {
-            for (int x = 0; x <= XDimension; x++)
+            for (int x = 0; x < XMapCount; x++)
             {
                 Map[x, y] = int.Parse(input[y][x].ToString());
             }
@@ -189,9 +184,9 @@ internal class Day11 : DayBase
             Flashed = new();//reset flashdictionary
 
             //First, the energy level of each octopus increases by 1.
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     Map[x, y]++;
                 }
@@ -201,9 +196,9 @@ internal class Day11 : DayBase
             //If this causes an octopus to have an energy level greater than 9,
             //it also flashes.This process continues as long as new octopuses keep having their energy level increased beyond 9.
             //(An octopus can only flash at most once per step.)
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     if (Map[x, y] > 9)
                     {
@@ -214,9 +209,9 @@ internal class Day11 : DayBase
             }
 
             //Finally, any octopus that flashed during this step has its energy level set to 0, as it used all of its energy to flash.
-            for (int y = 0; y <= YDimension; y++)
+            for (int y = 0; y < YMapCount; y++)
             {
-                for (int x = 0; x <= XDimension; x++)
+                for (int x = 0; x < XMapCount; x++)
                 {
                     if (Flashed.ContainsKey($"{x},{y}") && Flashed[$"{x},{y}"])
                     {

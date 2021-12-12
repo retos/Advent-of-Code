@@ -60,5 +60,19 @@ internal abstract class DayBase : IDay
     }
     public abstract string Part1(List<string> input, bool isTestRun);
     public abstract string Part2(List<string> input, bool isTestRun);
+
+    //Some Helper Methods
+    protected int[,] GetIntMap(List<string> input)
+    {
+        int[,] map = new int[input[0].Length, input.Count];
+        for (int y = 0; y < input.Count; y++)
+        {
+            for (int x = 0; x < input[0].Length; x++)
+            {
+                map[x, y] = int.Parse(input[y][x].ToString());
+            }
+        }
+        return map;
+    }
 }
 
