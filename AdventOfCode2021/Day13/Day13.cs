@@ -4,8 +4,8 @@ namespace AdventOfCode2021.Day13;
 
 internal class Day13 : DayBase
 {
-    public override string Title => "--- Day 13 ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 13: Transparent Origami ---";
+    public override bool Ignore => true;
     public List<Coordinate> Coordinates { get; set; }
     public List<Tuple<char, int>> FoldInstructions { get; set; }
     public int PaperHeight { get; set; }
@@ -35,8 +35,8 @@ internal class Day13 : DayBase
                 foreach (Coordinate coord in Coordinates)
                 {
                     if (coord.Y > fold.Item2)//below fold
-                    {
-                        int newY = PaperHeight - coord.Y + lowerHeight % upperHeight;//add what the upper is 'longer' in order to shift down                     
+                    {                  
+                        coord.Y = fold.Item2 - (coord.Y - fold.Item2);//subtract difference to fold
                     }
                 }
             }
@@ -53,8 +53,8 @@ internal class Day13 : DayBase
                 foreach (Coordinate coord in Coordinates)
                 {
                     if (coord.X > fold.Item2)//right of the fold
-                    {
-                        coord.X = PaperWidth - coord.X + rightWidht % leftWith;//add what the left is 'longer' in order to shift left                        
+                    {                      
+                        coord.X = fold.Item2 - (coord.X - fold.Item2);//subtract difference to fold
                     }
                 }
             }
@@ -70,7 +70,7 @@ internal class Day13 : DayBase
         }
 
 
-        return $"todoq";
+        return $"nothing found!";
     }
 
     private void PrintPaper()
@@ -145,7 +145,7 @@ internal class Day13 : DayBase
                 {
                     if (coord.Y > fold.Item2)//below fold
                     {
-                        coord.Y = PaperHeight - coord.Y + lowerHeight % upperHeight;//add what the upper is 'longer' in order to shift down                      
+                        coord.Y = fold.Item2 - (coord.Y - fold.Item2);//subtract difference to fold                    
                     }
                 }
             }
@@ -163,7 +163,7 @@ internal class Day13 : DayBase
                 {
                     if (coord.X > fold.Item2)//right of the fold
                     {
-                        coord.X = PaperWidth - coord.X + rightWidht % leftWith;//add what the left is 'longer' in order to shift left              
+                        coord.X = fold.Item2 - (coord.X - fold.Item2);//subtract difference to fold             
                     }
                 }
             }
