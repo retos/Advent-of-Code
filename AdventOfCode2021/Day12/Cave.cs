@@ -35,7 +35,6 @@
 
         internal void AddDestination(string name, ref List<Cave> caves)
         {
-            //TODO instead of 'string name' try a list
             if (!AllCaves.Any(c => c.Name == name))
             {
                 AllCaves.Add(new Cave(name, ref caves));
@@ -46,6 +45,7 @@
 
         internal long Walk(string path, ref List<string> pathList, bool part2)
         {
+            //TODO instead of 'string path' try a list
             if (Name == "end")
             {
                 pathList.Add($"{path},{Name}");

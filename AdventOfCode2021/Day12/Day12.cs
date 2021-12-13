@@ -2,7 +2,7 @@
 
 internal class Day12 : DayBase
 {
-    public override string Title => "--- Day 12 ---";
+    public override string Title => "--- Day 12: Passage Pathing ---";
     public override bool Ignore => false;
 
     public override string Part1(List<string> input, bool isTestRun)
