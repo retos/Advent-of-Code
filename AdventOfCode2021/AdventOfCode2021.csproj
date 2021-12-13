@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -42,6 +42,8 @@
     <None Remove="Day11\TestInput.txt" />
     <None Remove="Day12\Input.txt" />
     <None Remove="Day12\TestInput.txt" />
+    <None Remove="Day13\Input.txt" />
+    <None Remove="Day13\TestInput.txt" />
     <None Remove="DayTemplate\Input.txt" />
     <None Remove="DayTemplate\TestInput.txt" />
     <None Remove="Day04\Input.txt" />
@@ -101,6 +103,12 @@
     <Content Include="Day12\TestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Day13\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day13\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DayTemplate\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -119,6 +127,10 @@
     <Content Include="Day03\TestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
