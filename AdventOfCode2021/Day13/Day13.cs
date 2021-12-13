@@ -36,7 +36,7 @@ internal class Day13 : DayBase
                 {
                     if (coord.Y > fold.Item2)//below fold
                     {
-                        coord.Y = PaperHeight - coord.Y + upperHeight % lowerHeight;//add what the upper is 'longer' in order to shift down                        
+                        int newY = PaperHeight - coord.Y + lowerHeight % upperHeight;//add what the upper is 'longer' in order to shift down                     
                     }
                 }
             }
@@ -145,8 +145,7 @@ internal class Day13 : DayBase
                 {
                     if (coord.Y > fold.Item2)//below fold
                     {
-                        int newY = PaperHeight - coord.Y + lowerHeight % upperHeight;//add what the upper is 'longer' in order to shift down         
-                        coord.Y = newY;               
+                        coord.Y = PaperHeight - coord.Y + lowerHeight % upperHeight;//add what the upper is 'longer' in order to shift down                      
                     }
                 }
             }
@@ -164,8 +163,7 @@ internal class Day13 : DayBase
                 {
                     if (coord.X > fold.Item2)//right of the fold
                     {
-                        int newX = PaperWidth - coord.X + rightWidht % leftWith;//add what the left is 'longer' in order to shift left                         
-                        coord.X = newX;
+                        coord.X = PaperWidth - coord.X + rightWidht % leftWith;//add what the left is 'longer' in order to shift left              
                     }
                 }
             }
