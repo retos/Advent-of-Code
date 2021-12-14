@@ -44,6 +44,8 @@
     <None Remove="Day12\TestInput.txt" />
     <None Remove="Day13\Input.txt" />
     <None Remove="Day13\TestInput.txt" />
+    <None Remove="Day14\Input.txt" />
+    <None Remove="Day14\TestInput.txt" />
     <None Remove="DayTemplate\Input.txt" />
     <None Remove="DayTemplate\TestInput.txt" />
     <None Remove="Day04\Input.txt" />
@@ -109,6 +111,12 @@
     <Content Include="Day13\TestInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Day14\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day14\TestInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DayTemplate\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -130,6 +138,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
