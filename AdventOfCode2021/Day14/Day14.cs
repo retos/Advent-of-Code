@@ -4,8 +4,8 @@ namespace AdventOfCode2021.Day14;
 
 internal class Day14 : DayBase
 {
-    public override string Title => "--- Day 14 ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 14: Extended Polymerization ---";
+    public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
     {
@@ -100,7 +100,6 @@ internal class Day14 : DayBase
             pairCounts = nextPairCounts;
         }
               
-        return $"{singleCounts.Max(kv => kv.Value) - singleCounts.Min(kv => kv.Value)}";
-        
+        return $"{singleCounts.Max(kv => kv.Value) - singleCounts.Min(kv => kv.Value)}";        
     }
 }
