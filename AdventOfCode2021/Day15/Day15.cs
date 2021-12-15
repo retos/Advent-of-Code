@@ -19,28 +19,28 @@ internal class Day15 : DayBase
         //visualisation png                                         Day 10 2018
         //dictionary                                                Day 06 2021
 
-        return "";
-
         Coordinates = new();
-        for (int y = 0; y < input.Count; y++)
+        MapHeight = input.Count;
+        MapWith = input[0].Length;
+        Coordinate[,] map = new Coordinate[MapWith, MapHeight];
+        for (int y = 0; y < MapHeight; y++)
         {
-            for (int x = 0; x < input[0].Length; x++)
+            for (int x = 0; x < MapWith; x++)
             {
-                Coordinate coord = new Coordinate(int.Parse(input[y][x].ToString()), x, y);
+                Coordinate coord = new Coordinate(int.Parse(input[y][x].ToString()), x, y, ref map);
                 Coordinates.Add(coord);
             }
         }
-        MapHeight = input.Count;
-        MapWith = input[0].Length;
+
 
         //Dijkstra’s Shortest Path Algorithm https://www.youtube.com/watch?v=pVfj6mxhdMw
         Coordinate start = Coordinates.Where(c => c.X == 0 && c.Y == 0).Single();
         start.Cost = 0;
+        Target = start.Map[MapWith-1, MapHeight-1];
         Dijkstra();
+        WriteHtml($"Part1_Testrun{(isTestRun)}");
 
-
-
-        return $"{Coordinates.Where(c => c.X == MapWith - 1 && c.Y == MapHeight - 1).Single().Cost}";
+        return $"{Target.Cost}";
     }
 
     private void Dijkstra()
@@ -50,7 +50,7 @@ internal class Day15 : DayBase
             Coordinate chepestSpot = Coordinates.Where(c => !c.Visited).OrderBy(c => c.Cost).FirstOrDefault();
             chepestSpot.Visited = true;
 
-            List<Coordinate> unvisitedNeighbors = GetUnvisitedNeighbors(chepestSpot);
+            List<Coordinate> unvisitedNeighbors = chepestSpot.GetUnvisitedNeighbors();
 
             foreach (Coordinate neighbor in unvisitedNeighbors)
             {
@@ -64,131 +64,81 @@ internal class Day15 : DayBase
             Console.SetCursorPosition(0,0);
             Console.WriteLine($"total nodes: {Coordinates.Count()}");
             Console.WriteLine($"visited    : {Coordinates.Where(c => c.Visited).Count()}");
+            //WriteHtml($"Debug_visitedNodes_{Coordinates.Where(c => c.Visited).Count()}_of_{Coordinates.Count()}");
         } while (!Target.Visited);
+
+        MarkPath(Target);
     }
 
-    private List<Coordinate> GetUnvisitedNeighbors(Coordinate chepestSpot)
+    private void MarkPath(Coordinate currentNode)
     {
-        List<Coordinate> neighbors = new();
-        //up
-        Coordinate up = Coordinates.Where(c => c.X == chepestSpot.X && c.Y == chepestSpot.Y - 1 && !c.Visited).SingleOrDefault();
-        if (chepestSpot.Y > 1 && null != up)
-        {
-            neighbors.Add(up);
-        }//right
-        Coordinate right = Coordinates.Where(c => c.X == chepestSpot.X + 1 && c.Y == chepestSpot.Y && !c.Visited).SingleOrDefault();
-        if (chepestSpot.Y < MapWith && null != right)
-        {
-            neighbors.Add(right);
-        }//down
-        Coordinate down = Coordinates.Where(c => c.X == chepestSpot.X && c.Y == chepestSpot.Y + 1 && !c.Visited).SingleOrDefault();
-        if (chepestSpot.Y < MapHeight && null != down)
-        {
-            neighbors.Add(down);
-        }//left
-        Coordinate left = Coordinates.Where(c => c.X == chepestSpot.X - 1 && c.Y == chepestSpot.Y && !c.Visited).SingleOrDefault();
-        if (chepestSpot.Y > 1 && null != left)
-        {
-            neighbors.Add(left);
-        }
-        return neighbors;
+        //Walk back from the target and mark nodes as path
+        currentNode.PartOfThePath = true;
+        if (currentNode.X==0 && currentNode.Y==0) return;
+        MarkPath(currentNode.PreviousCoordinate);
     }
 
     public override string Part2(List<string> input, bool isTestRun)
     {
         Coordinates = new();
+        MapHeight = input.Count * 5;
+        MapWith = input[0].Length * 5;
+        Coordinate[,] map = new Coordinate[MapWith, MapHeight];
+
         for (int y = 0; y < input.Count; y++)
         {
             for (int x = 0; x < input[0].Length; x++)
             {
                 //row 1
                 int value = int.Parse(input[y][x].ToString());
-                Coordinate coord = new Coordinate(value, x, y);
-                Coordinates.Add(coord);
                 int stepper = input.Count;
-                int newValue = value + 1;
-                int value2 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 2;
-                int value3 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 3;
-                int value4 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 4;
-                int value5 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 5;
-                int value6 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 6;
-                int value7 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 7;
-                int value8 = (newValue <= 9) ? newValue : newValue % 9;
-                newValue = value + 8;
-                int value9 = (newValue <= 9) ? newValue : newValue % 9;
 
-                coord = new Coordinate(value2, x+(stepper), y);
-                Coordinates.Add(coord);
-                coord = new Coordinate(value3, x+(2*stepper), y);
-                Coordinates.Add(coord);
-                coord = new Coordinate(value4, x+(3*stepper), y);
-                Coordinates.Add(coord);
-                coord = new Coordinate(value5, x+(4*stepper), y);
-                Coordinates.Add(coord);
-                //row2
-                coord = new Coordinate(value2, x, y + stepper);
-                Coordinates.Add(coord);
-                coord = new Coordinate(value3, x + (stepper), y + (stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value4, x + (2 * stepper), y + (stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value5, x + (3 * stepper), y + (stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value6, x + (4 * stepper), y + (stepper));
-                Coordinates.Add(coord);
-                //row3
-                coord = new Coordinate(value3, x, y + (2 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value4, x + (stepper), y + (2 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value5, x + (2 * stepper), y + (2 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value6, x + (3 * stepper), y + (2 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value7, x + (4 * stepper), y + (2 * stepper));
-                Coordinates.Add(coord);
-                //row4
-                coord = new Coordinate(value4, x, y + (3 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value5, x + (stepper), y + (3 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value6, x + (2 * stepper), y + (3 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value7, x + (3 * stepper), y + (3 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value8, x + (4 * stepper), y + (3 * stepper));
-                Coordinates.Add(coord);
-                //row5
-                coord = new Coordinate(value5, x, y + (4 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value6, x + (stepper), y + (4 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value7, x + (2 * stepper), y + (4 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value8, x + (3 * stepper), y + (4 * stepper));
-                Coordinates.Add(coord);
-                coord = new Coordinate(value9, x + (4 * stepper), y + (4 * stepper));
-                Coordinates.Add(coord);
+                for (int yOffset = 0; yOffset < 5; yOffset++)
+                {
+                    for (int xOffset = 0; xOffset < 5; xOffset++)
+                    {
+                        int newValue = value + xOffset + yOffset;
+                        int offsetValue = (newValue <= 9) ? newValue : newValue % 9;
+                        Coordinate coord = new Coordinate(offsetValue, x + (stepper * xOffset), y + (stepper * yOffset), ref map);
+                        Coordinates.Add(coord);
+                    }
+                }
             }
         }
-
-        MapHeight = input.Count*5;
-        MapWith = input[0].Length*5;
 
         //Dijkstra’s Shortest Path Algorithm https://www.youtube.com/watch?v=pVfj6mxhdMw
         Coordinate start = Coordinates.Where(c => c.X == 0 && c.Y == 0).Single();
         start.Cost = 0;
         Target = Coordinates.Where(c => c.X == MapWith - 1 && c.Y == MapHeight - 1).Single();
         Dijkstra();
+        WriteHtml($"Part2_Testrun{(isTestRun)}");
 
+        return $"{Target.Cost}";
+    }
 
-
-        return $"{Coordinates.Where(c => c.X == MapWith - 1 && c.Y == MapHeight - 1).Single().Cost}";
+    private void WriteHtml(string suffix)
+    {
+        Coordinate[,] map = Target.Map;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int y = 0; y < MapHeight; y++)
+        {
+            for (int x = 0; x < MapWith; x++)
+            {
+                if (map[x,y].PartOfThePath)
+                {
+                    stringBuilder.Append($"<span style='color: #ffffff; font - style: normal; text - shadow: 0 0 5px #ffffff;'>{map[x, y].Value}</span>");
+                }
+                else if(!map[x,y].Visited)
+                {
+                    stringBuilder.Append($"<span style='color: #009900;'>{map[x, y].Value}</span>");
+                }
+                else
+                {
+                    stringBuilder.Append($"<span style='color: #626260;'>{map[x, y].Value}</span>");
+                }
+            }
+            stringBuilder.Append(System.Environment.NewLine);
+        }
+        File.WriteAllText($"Day15_{suffix}.html", $"<body style='background: #0f0f23'><pre>{stringBuilder.ToString()}</pre></body>");
     }
 }
