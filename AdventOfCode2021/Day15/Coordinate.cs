@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode2021.Day15
 {
-    internal class Coordinate
+    internal class Coordinate : IComparable<Coordinate>
     {
         public int Value { get; set; }
         public int X { get; set; }
@@ -49,6 +49,12 @@
 
 
             return neighbors;
+        }
+
+        public int CompareTo(Coordinate? other)
+        {
+            var status = (this.Cost > other.Cost) ? 1 : ((this.Cost == other.Cost) ? 0 : -1);
+            return status;
         }
     }
 }

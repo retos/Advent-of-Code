@@ -2,8 +2,8 @@
 
 internal class Day15 : DayBase
 {
-    public override string Title => "--- Day 15 ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 15: Chiton ---";
+    public override bool Ignore => true;
     public List<Coordinate> Coordinates{ get; set; }
     public int MapWith { get; set; }
     public int MapHeight { get; set; }
@@ -11,14 +11,6 @@ internal class Day15 : DayBase
 
     public override string Part1(List<string> input, bool isTestRun)
     {
-        //map[][]  (+modulo)                                        Day 03 2020 https://adventofcode.com/2020/day/3
-        //map[,]   (+output to console, to html file)               Day 11 2021, Day 09 2021
-        //switch case string & int parsing                          Day 02 2021
-        //convert binaryint to decimal  Convert.ToInt32(string, 2)  Day 03 2021
-        //visualisation txt->jpg with irfanview, jpg frames->mp4 with avidemux Day 05 2021 & Day09 2021
-        //visualisation png                                         Day 10 2018
-        //dictionary                                                Day 06 2021
-
         Coordinates = new();
         MapHeight = input.Count;
         MapWith = input[0].Length;
@@ -34,6 +26,7 @@ internal class Day15 : DayBase
 
 
         //Dijkstra’s Shortest Path Algorithm https://www.youtube.com/watch?v=pVfj6mxhdMw
+        //Coordinate start = Coordinates.Where(c => c.X == 0 && c.Y == 0).Single();
         Coordinate start = Coordinates.Where(c => c.X == 0 && c.Y == 0).Single();
         start.Cost = 0;
         Target = start.Map[MapWith-1, MapHeight-1];
@@ -47,7 +40,7 @@ internal class Day15 : DayBase
     {
         do
         {
-            Coordinate chepestSpot = Coordinates.Where(c => !c.Visited).OrderBy(c => c.Cost).FirstOrDefault();
+            Coordinate chepestSpot = Coordinates.Where(c => !c.Visited && !(c.Cost == long.MaxValue)).OrderBy(c => c.Cost).FirstOrDefault();
             chepestSpot.Visited = true;
 
             List<Coordinate> unvisitedNeighbors = chepestSpot.GetUnvisitedNeighbors();
