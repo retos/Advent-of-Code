@@ -7,129 +7,76 @@
         }
 
         public string Left { get; internal set; }
+        public string Oponent 
+        { 
+            get 
+            { 
+                return LetterToShape(Left);
+            }
+        }
+
         public string Right { get; internal set; }
+        public string Me
+        {
+            get
+            {
+                return LetterToShape(Right);
+            }
+        }
         public long Score 
         { 
             get 
             {
-                /*
-                A Rock
-                B Paper
-                C Scissors
-
-                X Rock
-                Y Paper
-                Z Scissors
-                 */
-                switch (Left)
+                return (Oponent, Me) switch
                 {
-                    case "A": //Rock
-                        if (Right == "X")
-                        {//draw
-                            return 1 + 3;
-                        }
-                        if (Right == "Y")
-                        {//Right win
-                            return 2 + 6;
-                        }
-                        if (Right == "Z")
-                        {//Left win
-                            return 3 + 0;
-                        }
-                        break;
-                    case "B"://Paper
-                        if (Right == "X")
-                        {//righ lose
-                            return 1 + 0;
-                        }
-                        if (Right == "Y")
-                        {//draw
-                            return 2 + 3;
-                        }
-                        if (Right == "Z")
-                        {//right win
-                            return 3 + 6;
-                        }
-                        break;
-                    case "C"://Scissors
-                        if (Right == "X")
-                        {//righ win
-                            return 1 + 6;
-                        }
-                        if (Right == "Y")
-                        {//right lose
-                            return 2 + 0;
-                        }
-                        if (Right == "Z")
-                        {//draw
-                            return 3 + 3;
-                        }
-                        break;
+                    ("Rock", "Rock") => 1 + 3,
+                    ("Rock", "Paper") => 2 + 6,
+                    ("Rock", "Scissors") => 3 + 0,
 
-                }
-                throw new Exception("Bad argument");
+                    ("Paper", "Rock") => 1 + 0,
+                    ("Paper", "Paper") => 2 + 3,
+                    ("Paper", "Scissors") => 3 + 6,
+
+                    ("Scissors", "Rock") => 1 + 6,
+                    ("Scissors", "Paper") => 2 + 0,
+                    ("Scissors", "Scissors") => 3 + 3,
+                    _ => throw new Exception("Bad arguments")
+                };
             } 
         }
         public long Score2
         {
             get
             {
-                /*
-                A Rock
-                B Paper
-                C Scissors
-
-                X needs to loose
-                Y draw needed
-                Z needs to win
-                 */
-                switch (Left)
+                return (Oponent, Me) switch
                 {
-                    case "A": //Rock
-                        if (Right == "X")
-                        {
-                            return 3 + 0;
-                        }
-                        if (Right == "Y")
-                        {
-                            return 1 + 3;
-                        }
-                        if (Right == "Z")
-                        {
-                            return 2 + 6;
-                        }
-                        break;
-                    case "B"://Paper
-                        if (Right == "X")
-                        {
-                            return 1 + 0;
-                        }
-                        if (Right == "Y")
-                        {
-                            return 2 + 3;
-                        }
-                        if (Right == "Z")
-                        {
-                            return 3 + 6;
-                        }
-                        break;
-                    case "C"://Scissors
-                        if (Right == "X")
-                        {
-                            return 2 + 0;
-                        }
-                        if (Right == "Y")
-                        {
-                            return 3 + 3;
-                        }
-                        if (Right == "Z")
-                        {
-                            return 1 + 6;
-                        }
-                        break;
-                }
-                throw new Exception("Bad argument");
+                    ("Rock", "Rock") => 3 + 0,
+                    ("Rock", "Paper") => 1 + 3,
+                    ("Rock", "Scissors") => 2 + 6,
+
+                    ("Paper", "Rock") => 1 + 0,
+                    ("Paper", "Paper") => 2 + 3,
+                    ("Paper", "Scissors") => 3 + 6,
+
+                    ("Scissors", "Rock") => 2 + 0,
+                    ("Scissors", "Paper") => 3 + 3,
+                    ("Scissors", "Scissors") => 1 + 6,
+                    _ => throw new Exception("Bad arguments")
+                };
             }
+        }
+        private string LetterToShape(string letter)
+        {
+            return letter switch
+            {
+                "A" => "Rock",
+                "B" => "Paper",
+                "C" => "Scissors",
+                "X" => "Rock",
+                "Y" => "Paper",
+                "Z" => "Scissors",
+                _ => throw new Exception("Invalid letter")
+            };
         }
     }
 }

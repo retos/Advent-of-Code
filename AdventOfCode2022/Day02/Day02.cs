@@ -3,7 +3,7 @@
 internal class Day02 : DayBase
 {
     public override string Title => "--- Day 2: Rock Paper Scissors ---";
-    public override bool Ignore => true;
+    public override bool Ignore => false;
 
     public override string Part1(List<string> input, bool isTestRun)
     {
@@ -16,8 +16,6 @@ internal class Day02 : DayBase
             g.Left = splits[0];
             g.Right = splits[1];
             games.Add(g);
-            
-            
         }
 
         return games.Sum(g => g.Score).ToString();
