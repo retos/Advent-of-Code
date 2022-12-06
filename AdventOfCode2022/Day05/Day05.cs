@@ -3,7 +3,7 @@
 internal class Day05 : DayBase
 {
     public override string Title => "--- Day 5: Supply Stacks ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
     public List<List<char>> Stacks { get; set; }
 
     public override string Part1(List<string> input, bool isTestRun)
