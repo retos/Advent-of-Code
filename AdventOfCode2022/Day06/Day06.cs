@@ -25,7 +25,7 @@ internal class Day06 : DayBase
     {
         int distinct = 14;
         string signal = input[0];
-        //start-of-packet marker: four characters that are all different
+
         for (int i = distinct - 1; i < signal.Length; i++)
         {
             if (signal.Substring(i - (distinct - 1), distinct).ToCharArray().Distinct().ToArray().Length >= distinct)
