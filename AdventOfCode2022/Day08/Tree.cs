@@ -20,8 +20,15 @@ namespace AdventOfCode2022.Day08
         /// Sammlung aller Nodes als Liste
         /// </summary>
         private List<Tree> allNodes;
-        private int zeileCount;
-        private int spalteCount;
+        //private int zeileCount;
+        public int ZeilenCount() => map.GetLength(0);
+
+            /*
+        int xMapCount = input[0].Length;
+        int yMapCount = input.Count;
+             */
+        //private int spalteCount;
+        public int SpaltenCount() => map.GetLength(1);
         private bool? isVisible = null;
 
         static Direction Left = new Direction(0, -1);
@@ -37,7 +44,7 @@ namespace AdventOfCode2022.Day08
         IEnumerable<Tree> TreesInDirection(Direction dir)
         {
             var (first, irow, icol) = (true, zeile, spalte);
-            while (irow >= 0 && irow < ZeileCount && icol >= 0 && icol < SpaltenCount)
+            while (irow >= 0 && irow < ZeilenCount() && icol >= 0 && icol < SpaltenCount())
             {
                 if (!first)
                 {
@@ -47,13 +54,11 @@ namespace AdventOfCode2022.Day08
             }
         }
 
-        public Tree(Tree[,] map, int x, int y, int xMapCount, int yMapCount, List<Tree> allNodes)
+        public Tree(Tree[,] map, int x, int y, List<Tree> allNodes)
         {
             this.map = map;
             this.spalte = x;
             this.zeile = y;
-            this.SpaltenCount = xMapCount;
-            this.ZeileCount = yMapCount;
             this.AllNodes = allNodes;
             allNodes.Add(this);
         }
@@ -69,12 +74,12 @@ namespace AdventOfCode2022.Day08
             IsTallest(dir) ? TreesInDirection(dir).Count() : SmallerTrees(dir).Count() + 1;
 
         public List<Tree> AllNodes { get => allNodes; set => allNodes = value; }
-        public int ZeileCount { get => zeileCount; set => zeileCount = value; }
-        public int SpaltenCount { get => spalteCount; set => spalteCount = value; }
+        //public int ZeileCount { get => ZeileCount(); set => ZeileCount()= value; }
+        //public int SpaltenCount { get => spalteCount; set => spalteCount = value; }
 
         private bool IsEdgeTree()
         {
-            return spalte == 0 || zeile == 0 || spalte == SpaltenCount - 1 || zeile == ZeileCount - 1;
+            return spalte == 0 || zeile == 0 || spalte == SpaltenCount() - 1 || zeile == ZeilenCount() - 1;
         }
 
         internal long GetScenicScore()

@@ -37,9 +37,9 @@ internal class Day08 : DayBase
     {
         //Console.SetCursorPosition(Console.GetCursorPosition(), 0);
         Console.WriteLine();
-        for (int y = 0; y < Map[0, 0].ZeileCount; y++)
+        for (int y = 0; y < Map[0, 0].ZeilenCount(); y++)
         {
-            for (int x = 0; x < Map[0, 0].SpaltenCount; x++)
+            for (int x = 0; x < Map[0, 0].SpaltenCount(); x++)
             {
                 Console.Write(Map[x, y].GetScenicScore());
             }
@@ -60,7 +60,7 @@ internal class Day08 : DayBase
             for (int x = 0; x < input[0].Length; x++)
             {
                 int height = int.Parse(input[y][x].ToString());
-                Tree tree = new Tree(Map, x, y, xMapCount, yMapCount, allNodes);
+                Tree tree = new Tree(Map, x, y, allNodes);
                 tree.Height = height;
                 Map[x, y] = tree;
             }
