@@ -20,16 +20,25 @@ namespace AdventOfCode2022.Day08
         /// Sammlung aller Nodes als Liste
         /// </summary>
         private List<Tree> allNodes;
-        //private int zeileCount;
-        public int ZeilenCount() => map.GetLength(0);
 
-            /*
-        int xMapCount = input[0].Length;
-        int yMapCount = input.Count;
-             */
-        //private int spalteCount;
+        public Tree(Tree[,] map, int x, int y, List<Tree> allNodes)
+        {
+            this.map = map;
+            this.spalte = x;
+            this.zeile = y;
+            this.AllNodes = allNodes;
+        }
+
+        /// <summary>
+        /// Anzahl Zeilen auf der Map
+        /// </summary>
+        /// <returns></returns>
+        public int ZeilenCount() => map.GetLength(0);
+        /// <summary>
+        /// Anzahl Spalten auf der Map
+        /// </summary>
+        /// <returns></returns>
         public int SpaltenCount() => map.GetLength(1);
-        private bool? isVisible = null;
 
         static Direction Left = new Direction(0, -1);
         static Direction Right = new Direction(0, 1);
@@ -54,15 +63,6 @@ namespace AdventOfCode2022.Day08
             }
         }
 
-        public Tree(Tree[,] map, int x, int y, List<Tree> allNodes)
-        {
-            this.map = map;
-            this.spalte = x;
-            this.zeile = y;
-            this.AllNodes = allNodes;
-            allNodes.Add(this);
-        }
-
         public int Height { get; internal set; }
         public bool IsVisible() =>
             (IsTallest(Left) || IsTallest(Right) || IsTallest(Up) || IsTallest(Down));
@@ -74,17 +74,9 @@ namespace AdventOfCode2022.Day08
             IsTallest(dir) ? TreesInDirection(dir).Count() : SmallerTrees(dir).Count() + 1;
 
         public List<Tree> AllNodes { get => allNodes; set => allNodes = value; }
-        //public int ZeileCount { get => ZeileCount(); set => ZeileCount()= value; }
-        //public int SpaltenCount { get => spalteCount; set => spalteCount = value; }
-
-        private bool IsEdgeTree()
-        {
-            return spalte == 0 || zeile == 0 || spalte == SpaltenCount() - 1 || zeile == ZeilenCount() - 1;
-        }
 
         internal long GetScenicScore()
         {
-            if (IsEdgeTree()) { return 0; };
             return ViewDistance(Up) * ViewDistance(Down) * ViewDistance(Left) * ViewDistance(Right);
         }
     }

@@ -3,7 +3,7 @@
 internal class Day08 : DayBase
 {
     public override string Title => "--- Day 8: Treetop Tree House ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
     public Tree[,] Map { get; set; }
 
     static Direction Left = new Direction(0, -1);
@@ -63,6 +63,7 @@ internal class Day08 : DayBase
                 Tree tree = new Tree(Map, x, y, allNodes);
                 tree.Height = height;
                 Map[x, y] = tree;
+                allNodes.Add(tree);
             }
         }
         return Map;
