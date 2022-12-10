@@ -5,7 +5,7 @@ namespace AdventOfCode2022.Day09;
 internal class Day09 : DayBase
 {
     public override string Title => "--- Day 9: Rope Bridge ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
 
     List<(long zeile, long spalte)> Knots { get; set; }
     List<(long zeile, long spalte)> PastTailPositions { get; set; }
@@ -118,39 +118,7 @@ internal class Day09 : DayBase
             return NoDirection;
         }
         (long zeile, long spalte) diff = (knot1.zeile-knot2.zeile, knot1.spalte-knot2.spalte);
-
         return new Direction(Math.Sign(diff.zeile), Math.Sign(diff.spalte));
-        //switch (diff.zeile, diff.spalte)
-        //{
-        //    case ( < 0, 0):
-        //        return Up;
-        //        break;
-        //    case ( < 0, > 0):
-        //        return UpRight;
-        //        break;
-        //    case (0, > 0):
-        //        return Right;
-        //        break;
-        //    case ( > 0, > 0):
-        //        return RightDown;
-        //        break;
-        //    case ( > 0, 0):
-        //        return Down;
-        //        break;
-        //    case ( > 0, < 0):
-        //        return DownLeft;
-        //        break;
-        //    case (0, < 0):
-        //        return Left;
-        //        break;
-        //    case (< 0, < 0):
-        //        return LeftUp;
-        //        break;
-        //    default:
-        //        throw new Exception("Bad argument");
-        //        break;
-        //}
-        //throw new Exception("Bad argument");
     }
 
     private bool StillTouching((long zeile, long spalte) firstKnot, (long zeile, long spalte) secondKnot)
