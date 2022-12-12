@@ -5,7 +5,7 @@ namespace AdventOfCode2022.Day12;
 internal class Day12 : DayBase
 {
     public override string Title => "--- Day 12: Hill Climbing Algorithm ---";
-    public override bool Ignore => false;
+    public override bool Ignore => true;
     public Node[,] Map { get; set; }
 
 
