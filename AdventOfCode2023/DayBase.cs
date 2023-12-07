@@ -20,8 +20,6 @@ internal abstract class DayBase : IDay
     public abstract string Title { get; }
     public abstract bool Ignore { get; }
 
-    public int SortOrder => int.Parse(GetType().Name.Substring(3, 2));
-
     private List<string> ReadInput(string filename)
     {
         StreamReader reader = new StreamReader(System.IO.Path.Combine(GetType().Name, filename));

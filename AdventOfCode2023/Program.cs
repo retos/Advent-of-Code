@@ -8,7 +8,7 @@ List<IDay> instances = System.Reflection.Assembly.GetExecutingAssembly().GetType
         .ToList();
 
 
-foreach (IDay day in instances.OrderBy(d => d.SortOrder))
+foreach (IDay day in instances.OrderBy(d => d.Title))
 {
     day.Calculate();
 }

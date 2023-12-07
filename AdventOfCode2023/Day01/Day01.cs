@@ -2,8 +2,8 @@
 
 internal class Day01 : DayBase
 {
-    public override string Title => "--- Day 1: ---";
-    public override bool Ignore => false;
+    public override string Title => "--- Day 1: Trebuchet?! ---";
+    public override bool Ignore => true;
 
     public override string Part1(List<string> input, bool isTestRun)
     {
